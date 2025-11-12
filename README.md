@@ -24,31 +24,6 @@ React + TypeScript + Vite 기반으로 구축되었으며, 재고 등록·AI 추
 ---
 
 ## 📁 디렉터리 구조
-src/
-├─ app/
-│  ├─ AppLayout.tsx
-│  └─ routes.tsx
-├─ components/
-│  ├─ common/
-│  │  ├─ Header.tsx
-│  │  ├─ Card.tsx
-│  │  ├─ Modal.tsx
-│  │  └─ Stepper.tsx
-│  └─ books/
-│     ├─ BookCard.tsx        # 앞/뒷면 Flip 카드
-│     ├─ BookCard.module.css
-│     ├─ types.ts            # Book 타입
-│     └─ mock.ts             # 예시 데이터(개발용)
-├─ pages/
-│  ├─ Home.tsx
-│  ├─ InventoryNew.tsx
-│  ├─ Recommendations.tsx          # 챗 + 전송 + 로딩
-│  ├─ RecommendationResult.tsx     # 추천 결과 리스트
-│  ├─ Login.tsx
-│  └─ Signup.tsx
-├─ styles/
-│  └─ index.css
-├─ main.tsx
-└─ vite-env.d.ts
+
 
 
