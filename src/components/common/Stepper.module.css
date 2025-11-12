@@ -1,0 +1,15 @@
+.wrap{ position: sticky; top: 64px; z-index: 1; padding-top: 8px; }
+.track{
+  height: 4px; background:#efefef; border-radius: 999px; position: relative; overflow: hidden;
+}
+.bar{
+  position:absolute; left:0; top:0; bottom:0;
+  background:#7c3aed; border-radius: 999px; transition: width .25s ease;
+}
+.steps{
+  display:grid; grid-template-columns: repeat(5, 1fr); margin-top: 10px;
+}
+.step{ text-align:center; color:#b6b6b6; font-weight:700; font-size: 14px; padding-bottom: 6px; }
+.step.on{ color:#7c3aed; }
+.label{ border-bottom: 2px solid transparent; padding-bottom: 8px; }
+.step.on .label{ border-bottom-color: #7c3aed; }

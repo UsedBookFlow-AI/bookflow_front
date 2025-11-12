@@ -1,0 +1,101 @@
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root{
+    --brand:#8b5cf6;
+    --ink-1:#0f172a;
+    --ink-2:#374151;
+    --line:#e5e7eb;
+    --shadow:0 8px 20px rgba(0,0,0,.06);
+    --radius:16px;
+  }
+  
+  .page {
+    height: 80vh;                  /* ✅ 브라우저 전체 높이 사용 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;        /* ✅ 세로/가로 중앙 정렬 */
+
+  }
+  
+  .title{
+    margin: 0 0 40px;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--ink-1);
+    text-align: center;
+  }
+  
+  /* 카드 영역 간격 축소 */
+  .card{
+    width: min(480px, 92vw);
+    display: grid;
+    gap: 20px; /* ✅ 간격 축소 */
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px 24px; /* ✅ 내부 패딩도 약간 줄임 */
+  }
+  
+  .field{
+    display: grid;
+    gap: 6px; /* ✅ label과 input 간 간격 축소 */
+  }
+  
+  .label{
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink-1);
+  }
+  
+  /* input을 조금 더 컴팩트하게 */
+  .input{
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #ececec;
+    border-radius: 8px;
+    background: #fff;
+    outline: none;
+    font-size: 14px;
+    transition: box-shadow .15s ease, border-color .15s ease;
+  }
+  
+  .input::placeholder{ color: #b7a7ef; }
+  .input:focus{
+    border-color: #c4b5fd;
+    box-shadow: 0 0 0 3px rgba(139,92,246,.12);
+  }
+  
+  /* 에러 메시지와 버튼 사이도 좁힘 */
+  .error{
+    margin: 4px 0 0;
+    color: #dc2626;
+    font-size: 12px;
+  }
+  
+  /* 버튼을 카드와 살짝 붙이기 */
+  .primary{
+    width: min(480px, 92vw);
+    margin: 15px auto 0; /* ✅ 위 간격 줄임 */
+    height: 42px;
+    border: 0;
+    border-radius: 10px;
+    background: #a78bfa;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: filter .15s ease, transform .02s ease;
+    box-shadow: 0 4px 14px rgba(139,92,246,.25);
+  }
+  .primary:hover{ filter: brightness(.98); }
+  .primary:active{ transform: translateY(1px); }
+  
+  .helper{
+    margin-top: 15px; /* ✅ 줄임 */
+    color: var(--ink-2);
+    font-size: 12px;
+    text-align: center;
+  }
+  .helper a{ color: var(--brand); font-weight: 600; }

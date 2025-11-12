@@ -1,0 +1,144 @@
+.item {
+  flex: 0 0 340px;
+  margin-right: 20px;
+}
+
+.card {
+  width: 340px;
+  height: 520px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  cursor: pointer;
+}
+.flip {
+  transform: rotateY(180deg);
+}
+
+/* 공통 */
+.face {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+/* ============== 앞면 ============== */
+.front {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ✅ 이미지 비중 확 늘림 */
+.cover {
+  flex: 0 0 80%;               /* 기존 58% → 80% */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #f6f6ff;
+}
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* 이미지 꽉 채우기 */
+  object-position: center;      /* 중앙 정렬 */
+  display: block;
+}
+
+/* ✅ 텍스트 부분은 간결하게 */
+.metaFront {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 20px 30px;
+
+}
+
+.bookTitle {
+  font-size: 16px;              /* ↓ 살짝 축소 */
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bookSub {
+  font-size: 13px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stock {
+  font-size: 13px;
+  font-weight: 700;
+  color: #6d28d9;
+}
+
+/* ============== 뒷면(변경 없음) ============== */
+.back {
+  transform: rotateY(180deg);
+}
+
+.backInner {
+  height: 100%;
+  display: grid;
+  align-content: space-between;
+  gap: 14px;
+  padding: 20px 20px 22px;
+  background-color: #f5f5f5;
+}
+
+.badge {
+  margin: 4px auto 2px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #eee8ff;
+  color: #5b21b6;
+  font-weight: 800;
+}
+
+.desc {
+  display: grid;
+  gap: 8px;
+
+}
+.desc > div {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 8px;
+  font-size: 14px;
+
+}
+.desc dt {
+  color: #64748b;
+
+}
+.desc dd {
+  color: #0f172a;
+}
+
+.apply {
+  margin-top: 130px;
+  height: 44px;
+  border: 0;
+  border-radius: 10px;
+  background: #8b5cf6;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+.hint {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #94a3b8;
+  text-align: center;
+}

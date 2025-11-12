@@ -1,0 +1,64 @@
+/* 전체 톤: 연보라 배경, 둥근 모서리, 부드러운 그림자 */
+.card {
+    --card-bg: #e9ddff;        /* 배경 보라 */
+    --card-fg: #7c3aed;        /* 포인트 보라 */
+    --ink-1: #0f172a;
+    --ink-2: #334155;
+  
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid #e6e3f5;
+    box-shadow: 0 12px 24px rgba(0,0,0,.08);
+    padding: 32px 28px;
+    width: 360px;
+    min-height: 480px;
+  
+    display: grid;
+    grid-template-rows: 180px 1fr auto auto; /* 아이콘 / 여백 / 설명 / 타이틀 */
+    gap: 8px;
+  
+    cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease;
+    text-align: center; /* 기본(center) */
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(0,0,0,.12); }
+  
+  /* 아이콘 영역 */
+  .icon {
+    display: grid;
+    place-items: center;
+    color: var(--card-fg);
+    font-size: 0; /* svg만 보이게 */
+    margin-top: 50px;
+
+  }
+  
+  /* 설명 / 타이틀 */
+  .desc {
+    color: var(--ink-2);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 4px 4px;
+  }
+  .title {
+    color: var(--ink-1);
+    font-size: 22px;
+    font-weight: 800;
+    margin: 6px 4px 6px;
+  }
+  
+  /* 정렬 변형: 스샷처럼 좌/중/우 정렬 차이 */
+  .left   { text-align: right; }
+  .center { text-align: right; }
+  .right  { text-align: right; }
+  
+  /* 접근성/포커스 */
+  .card:focus-visible {
+    outline: 3px solid rgba(124,58,237,.35);
+    outline-offset: 2px;
+  }
+  
+  /* 반응형 */
+  @media (max-width: 1100px) {
+    .card { width: 100%; max-width: 560px; }
+  }

@@ -1,0 +1,16 @@
+.home {
+  display: grid;
+  place-items: center;
+  padding: 64px 24px 80px;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 360px);
+  gap: 40px;
+  margin-top: 60px;
+}
+
+@media (max-width: 1180px) {
+  .cardContainer { grid-template-columns: 1fr; }
+}
