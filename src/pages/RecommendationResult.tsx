@@ -4,7 +4,7 @@ import BookCard from "@/components/books/BookCard";
 import type { Book } from "@/components/books/types";
 import styles from "./RecommendationResult.module.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import  mockBooks  from "@/mock/books";
+
 
 type ResultState = { query: string; data: Book[] };
 
@@ -19,7 +19,7 @@ export default function RecommendationResult() {
 
   if (!state?.data) return null;
 
-  const data = state?.data || mockBooks; 
+  const data = state?.data;
 
   // 좌우 스크롤
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -55,12 +55,12 @@ export default function RecommendationResult() {
 
       {/* 검색/요청 문장 보여주고 싶으면 여기에 표시 */}
       {/* <p className={styles.query}>요청: {query}</p> */}
-      
+
       {/*<BookCard key={b.id} book={b} onApply={onApply} /> */}
 
       <div className={styles.scroller} ref={scrollerRef}>
         {data.map((b) => (
-            <BookCard key={b.id} book={b} onApply={onApply} />
+          <BookCard key={b.id} book={b} onApply={onApply} />
         ))}
       </div>
     </div>

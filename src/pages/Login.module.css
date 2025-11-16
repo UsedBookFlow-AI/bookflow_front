@@ -1,5 +1,9 @@
 
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}ㅇ
 
 :root{
     --brand:#8b5cf6;
@@ -51,14 +55,19 @@
   }
   
   /* input을 조금 더 컴팩트하게 */
-  .input{
+  .input {
+    width: 95%;          /* 부모 안에서 꽉 차게 + 삐져나오지 않게 */
     height: 40px;
-    padding: 0 10px;
+    padding: 10px;
+  
     border: 1px solid #ececec;
     border-radius: 8px;
-    background: #fff;
-    outline: none;
+    background: white;
+  
     font-size: 14px;
+    outline: none;
+  
+    box-sizing: border-box;  /* 핵심 */
     transition: box-shadow .15s ease, border-color .15s ease;
   }
   
@@ -77,7 +86,7 @@
   
   /* 버튼을 카드와 살짝 붙이기 */
   .primary{
-    width: min(480px, 92vw);
+    width: 90%;
     margin: 15px auto 0; /* ✅ 위 간격 줄임 */
     height: 42px;
     border: 0;

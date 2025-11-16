@@ -1,78 +1,76 @@
 .header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-  }
-  
-  /* 내부 컨테이너 */
-  .inner {
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  /* 로고 */
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 700;
-    color: #333;
-    text-decoration: none;
-  }
-  
-  .logoIcon {
-    color: #7c3aed; /* 보라톤 */
-  }
-  
-  .logoText {
-    font-size: 18px;
-  }
-  
-  /* 네비게이션 버튼 */
-  .nav {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-  }
-  
-  .textBtn {
-    border: none;
-    background: none;
-    color: #555;
-    font-size: 14px;
-    cursor: pointer;
-    padding: 6px 10px;
-    border-radius: 6px;
-    transition: background 0.2s ease;
-  }
-  
-  .textBtn:hover {
-    background: rgba(124, 58, 237, 0.08);
-  }
-  
-  .primaryBtn {
-    background: #7c3aed;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 7px 14px;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background 0.2s ease;
-  }
-  
-  .primaryBtn:hover {
-    background: #6d28d9;
-  }
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.inner {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 로고 */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #333;
+  text-decoration: none;
+}
+
+.logoIcon {
+  color: #7c3aed;
+}
+
+.logoText {
+  font-size: 18px;
+}
+
+/* 네비게이션 */
+.nav {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* 🔹 NavLink용 기본 버튼 스타일 */
+.navBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 0;
+  background: transparent;
+  color: #4b5563;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+
+  text-decoration: none;
+  /* 밑줄 제거 */
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.navBtn:hover {
+  background: rgba(124, 58, 237, 0.08);
+}
+
+/* 🔹 활성화된 버튼 */
+.active {
+  background: #a78bfa;
+  color: #fff !important;
+  box-shadow: 0 6px 16px rgba(167, 139, 250, 0.45);
+}

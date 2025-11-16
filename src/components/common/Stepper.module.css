@@ -1,15 +1,64 @@
-.wrap{ position: sticky; top: 64px; z-index: 1; padding-top: 8px; }
-.track{
-  height: 4px; background:#efefef; border-radius: 999px; position: relative; overflow: hidden;
+/* 전체 스텝퍼 영역 */
+.wrap {
+  width: 100%;
+  max-width: 780px;
+  /* 🔹 폭 조금 줄이기 */
+  margin: 40px auto 24px;
 }
-.bar{
-  position:absolute; left:0; top:0; bottom:0;
-  background:#7c3aed; border-radius: 999px; transition: width .25s ease;
+
+/* 위에 가는 선 */
+.track {
+  position: relative;
+  height: 2px;
+  background: #e5e7eb;
+  overflow: hidden;
 }
-.steps{
-  display:grid; grid-template-columns: repeat(5, 1fr); margin-top: 10px;
+
+/* 진행된 구간 */
+.bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #a78bfa;
+  /* 포인트 보라색 */
+  transition: width 0.25s ease;
 }
-.step{ text-align:center; color:#b6b6b6; font-weight:700; font-size: 14px; padding-bottom: 6px; }
-.step.on{ color:#7c3aed; }
-.label{ border-bottom: 2px solid transparent; padding-bottom: 8px; }
-.step.on .label{ border-bottom-color: #7c3aed; }
+
+/* step 라벨 영역 */
+.steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 8px;
+  flex-wrap: nowrap;
+  /* 🔹 무조건 한 줄 */
+  margin-top: 8px;
+}
+
+/* 각 step */
+.step {
+  flex: 1;
+  /* 🔹 폭 균등 분배 */
+  min-width: 0;
+  text-align: center;
+}
+
+/* 기본 라벨 */
+.label {
+  display: block;
+  font-size: 13px;
+  /* 🔹 폰트 조금 줄이기 */
+  font-weight: 500;
+  color: #9ca3af;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* 활성/지난 step */
+.on .label {
+  color: #4c1d95;
+  /* 진한 보라 */
+  font-weight: 600;
+}

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Recommendation.module.css";
 import { Bot, MapPin, User, SendHorizontal, PenLine } from "lucide-react";
-import type { Book } from "@/components/books/types";    
+import type { Book } from "@/components/books/types";
 
 type Msg = { id: string; role: "bot" | "user" | "hint"; text: string };
 
@@ -13,13 +13,13 @@ export default function Recommendations() {
   const [msgs, setMsgs] = useState<Msg[]>([]);
   const wrapRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
 
   // 안내 문구 3개
   const intro = useMemo<Msg[]>(
     () => [
-      { id: "i1", role: "bot",  text: "안녕하세요! 재고 도서 매칭 AI 입니다!" },
-      { id: "i2", role: "bot",  text: "수급 받고자 하는 도서에 대해 알려주세요!" },
+      { id: "i1", role: "bot", text: "안녕하세요! 재고 도서 매칭 AI 입니다!" },
+      { id: "i2", role: "bot", text: "수급 받고자 하는 도서에 대해 알려주세요!" },
       {
         id: "i3",
         role: "hint",
@@ -54,19 +54,19 @@ export default function Recommendations() {
   const onSend = async () => {
     if (!canSend) return;
     const text = input.trim();
-  
+
     const userMsg: Msg = { id: crypto.randomUUID(), role: "user", text };
     setMsgs((m) => [...m, userMsg]);
     setInput("");
     setLoading(true);
-  
+
     try {
       // TODO: 실제 API 호출
       // const data = await api.fetchRecommendations(text);
-  
+
       // 데모용 (Book[] 리턴)
       const data: Book[] = await mockFetch(text);
-  
+
       // 결과와 쿼리를 state로 전달
       nav("/recommendations/result", {
         state: { query: text, data },
@@ -79,7 +79,7 @@ export default function Recommendations() {
       setLoading(false);
     }
   };
-  
+
 
 
   const onKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = (e) => {
@@ -91,29 +91,29 @@ export default function Recommendations() {
 
   async function mockFetch(q: string): Promise<Book[]> {
     await new Promise((r) => setTimeout(r, 900));
+
     return [
       {
         id: "b1",
-        title: "해양 신비",
+        title: "푸른 바다의 비밀",
         author: "팀 블루 에디션",
         genre: "자연 과학",
         publisher: "바다출판사",
-        location: "A-12",
+        category: "자연/과학",
+        reason: "6~7세 아동이 흥미를 느낄 만한 바다 생물 이야기가 풍부해요!",
         stock: 7,
-        cover:
-          "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+        cover: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
       },
-      // ...원하는 만큼 추가
       {
         id: "b2",
         title: "낚시 이야기",
         author: "낚시칸",
         genre: "취미",
         publisher: "리버프레스",
-        location: "B-03",
+        category: "취미/에세이",
+        reason: "야외 활동을 즐기는 어린이에게 공감되는 내용이 많아요.",
         stock: 12,
-        cover:
-          "https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=800&auto=format&fit=crop",
+        cover: "https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=800&auto=format&fit=crop",
       },
       {
         id: "b3",
@@ -121,10 +121,10 @@ export default function Recommendations() {
         author: "오션 프레스",
         genre: "다큐",
         publisher: "오션 프레스",
-        location: "C-21",
+        category: "다큐멘터리",
+        reason: "바다를 배경으로 한 실화를 좋아하는 독자에게 적합해요.",
         stock: 8,
-        cover:
-          "https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=800&auto=format&fit=crop",
+        cover: "https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=800&auto=format&fit=crop",
       },
       {
         id: "b4",
@@ -132,26 +132,26 @@ export default function Recommendations() {
         author: "폭 라인 옵서버",
         genre: "에세이",
         publisher: "폭라인",
-        location: "D-08",
+        category: "에세이",
+        reason: "모험 요소가 포함된 가벼운 읽을거리로 추천돼요.",
         stock: 10,
-        cover:
-          "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+        cover: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
       },
       {
         id: "b5",
-        title: "해양 신비",
+        title: "조용한 파도",
         author: "팀 블루 에디션",
-        genre: "자연 과학",
+        genre: "문학",
         publisher: "블루",
-        location: "E-17",
+        category: "문학/힐링",
+        reason: "따뜻한 분위기와 잔잔한 서사가 힐링에 좋아요.",
         stock: 7,
-        cover:
-          "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+        cover: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
       },
     ];
   }
 
-  
+
 
   return (
     <div className={styles.page}>
@@ -213,13 +213,13 @@ function Bubble({ role, text }: { role: "bot" | "user" | "hint"; text: string })
 }
 
 function LoadingOverlay() {
-    return (
-      <div className={styles.overlay} role="dialog" aria-modal="true" aria-label="추천 진행 중">
-        <div className={styles.overlayCard}>
-          <div className={styles.spinner} aria-hidden="true" />
-          <strong className={styles.overlayTitle}>매칭 AI가 도서를 추천 중입니다!</strong>
-          <p className={styles.overlaySub}>잠시만 기다려 주세요…</p>
-        </div>
+  return (
+    <div className={styles.overlay} role="dialog" aria-modal="true" aria-label="추천 진행 중">
+      <div className={styles.overlayCard}>
+        <div className={styles.spinner} aria-hidden="true" />
+        <strong className={styles.overlayTitle}>매칭 AI가 도서를 추천 중입니다!</strong>
+        <p className={styles.overlaySub}>잠시만 기다려 주세요…</p>
       </div>
-    );
-  }
+    </div>
+  );
+}

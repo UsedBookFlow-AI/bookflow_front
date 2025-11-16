@@ -1,39 +1,44 @@
-import { NavLink, Link, useNavigate } from "react-router-dom";
+// Header.tsx
+import { NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
-import { BookOpen } from "lucide-react"; // npm i lucide-react (아이콘)
+import { BookOpen } from "lucide-react";
 
 export default function Header() {
-  const nav = useNavigate();
-
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        {/* 로고 */}
-        <Link to="/" className={styles.logo}>
+        <NavLink to="/" className={styles.logo}>
           <BookOpen size={20} className={styles.logoIcon} />
           <span className={styles.logoText}>UsedBookFlow</span>
-        </Link>
+        </NavLink>
 
-        {/* 우측 메뉴 */}
         <nav className={styles.nav}>
-          <button
-            className={styles.textBtn}
-            onClick={() => nav("/login")}
+          <NavLink
+            to="/login"
+            className={({ isActive }) =>
+              `${styles.navBtn} ${isActive ? styles.active : ""}`
+            }
           >
             로그인
-          </button>
-          <button
-            className={styles.primaryBtn}
-            onClick={() => nav("/signup")}
+          </NavLink>
+
+          <NavLink
+            to="/signup"
+            className={({ isActive }) =>
+              `${styles.navBtn} ${isActive ? styles.active : ""}`
+            }
           >
             회원가입
-          </button>
-          <button
-            className={styles.textBtn}
-            onClick={() => nav("/recommendations")}
+          </NavLink>
+
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `${styles.navBtn} ${isActive ? styles.active : ""}`
+            }
           >
             서비스
-          </button>
+          </NavLink>
         </nav>
       </div>
     </header>

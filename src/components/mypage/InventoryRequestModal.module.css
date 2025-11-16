@@ -1,0 +1,106 @@
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 120;
+}
+
+.modal {
+    width: min(640px, 92vw);
+    background: #f9fafb;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.28);
+    padding: 22px 26px 20px;
+    font-size: 14px;
+    color: #111827;
+}
+
+/* 헤더 */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.close {
+    border: 0;
+    background: transparent;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    color: #6b7280;
+}
+
+/* 재고 요약 */
+.stockRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.stockRow strong {
+    font-weight: 700;
+}
+
+.stockSub {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+/* 구분선 */
+.divider {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 8px 0 10px;
+}
+
+/* 테이블 */
+.tableWrap {
+    max-height: 260px;
+    overflow: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.table thead {
+    background: #e5e7eb;
+}
+
+.table th,
+.table td {
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+.table th {
+    font-weight: 600;
+    color: #111827;
+}
+
+.table tbody tr:nth-child(even) {
+    background: #f3f4f6;
+}
+
+.empty {
+    text-align: center;
+    color: #6b7280;
+}

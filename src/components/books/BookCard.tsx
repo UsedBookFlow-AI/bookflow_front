@@ -10,6 +10,7 @@ export default function BookCard({
   onApply: (b: Book) => void;
 }) {
   const [flip, setFlip] = useState(false);
+  console.log("BookCard book >>>", book);
 
   return (
     <div className={styles.item}>
@@ -43,8 +44,9 @@ export default function BookCard({
               <div><dt>저자</dt><dd>{book.author}</dd></div>
               <div><dt>장르</dt><dd>{book.genre}</dd></div>
               <div><dt>출판사</dt><dd>{book.publisher}</dd></div>
-              <div><dt>위치</dt><dd>{book.location}</dd></div>
+              <div><dt>카테고리</dt><dd>{book.category}</dd></div>   {/* ✅ 여기 */}
               <div><dt>재고</dt><dd>{book.stock}권</dd></div>
+              <div><dt>추천 이유</dt><dd>{book.reason}</dd></div>
             </dl>
 
             {/* ✅ 버튼에서만 버블링 중단 → 카드가 뒤집히지 않음 */}
